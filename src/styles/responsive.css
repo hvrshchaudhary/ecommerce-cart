@@ -1,0 +1,236 @@
+/* src/styles/responsive.css */
+
+/* For screens 1024px and below */
+@media (max-width: 1024px) {
+    /* Navbar adjustments */
+    .navbar {
+      padding: 0.75rem 1rem; /* Reduce padding to make it thinner */
+    }
+  
+    .nav-item {
+      font-size: 0.9rem; /* Slightly smaller font size */
+      padding: 0.5rem 0; /* Adjust padding for a compact look */
+    }
+  
+    .cart-icon-wrapper .cart-icon {
+      font-size: 20px; /* Slightly smaller cart icon */
+    }
+  
+    .nav-icon {
+      font-size: 1.75rem; /* Reduce anchor icon size */
+    }
+    .cart-count-badge {
+        font-size: 0.65rem; /* Smaller font size */
+        padding: 1.5px 4px; /* Smaller padding */
+        top: -6px; /* Adjust position if needed */
+        right: -8px; /* Adjust position if needed */
+    }
+  }
+
+/* For screens 768px and below */
+@media (max-width: 768px) {
+
+    .navbar {
+        align-items: flex-start;
+    }
+    .cart-icon-wrapper .cart-icon {
+        font-size: 15px; /* Slightly smaller cart icon */
+    }
+    .nav-icon {
+        font-size: 1.65rem; /* Reduce anchor icon size */
+    }
+    /* Home page */
+
+    .home-heading {
+        font-size: 1.8rem;
+    }
+    
+    .home-subtitle {
+        font-size: 0.9rem;
+    }
+    
+    .home-button {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.8rem;
+    }
+
+}
+
+/* For screens 523px and below */
+@media (max-width: 495px) {
+    .navbar {
+        padding: 0.5rem 0.75rem; /* Reduce padding to make it thinner */
+      }
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    p {
+        font-size: 0.875rem;
+        margin: 0;
+    }
+
+    .add-btn, .remove-btn {
+        width: 80%; /* Smaller buttons */
+    }
+    .nav-item {
+        font-size: 0.8rem; /* Slightly smaller font size */
+        padding: 0.5rem 0; /* Adjust padding for a compact look */
+    }
+    .cart-count-badge {
+        font-size: 0.55rem; /* Smaller font size */
+        padding: 1.5px 3px; /* Smaller padding */
+        top: -3px; /* Adjust position if needed */
+        right: -6px;
+    }
+    /* Home page */
+    
+    .home-heading {
+        font-size: 1.8rem;
+    }
+    
+    .home-subtitle {
+        font-size: 0.9rem;
+        margin: 0;
+    }
+    
+    .home-button {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.8rem;
+        margin-top: 1.5rem;
+    }
+
+    /* Products page */
+    .product-card {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 1rem;
+      gap: 1rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.142);
+      border-radius: 10px;
+      background-color: white;
+      width: 90%;
+      max-width: 100%;
+      height: auto; /* Ensure the card height is auto to fit content */
+    }
+  
+    .product-card img {
+      width: 100px; /* Image width */
+      height: 100px; /* Image height */
+      object-fit: cover;
+      border-radius: 10px;
+      flex-shrink: 0;
+    }
+  
+    .product-card .content-parent {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex-grow: 1;
+      height: auto; /* Ensure the content container height is auto */
+    }
+  
+    .product-card .content {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      flex-grow: 1;
+      margin: 0; /* Remove any unnecessary margins */
+      height: auto; /* Ensure content takes up just the needed height */
+    }
+  
+    .product-card h3 {
+      font-size: 0.9rem; /* Slightly reduce heading size */
+      margin: 0;
+    }
+  
+    .product-card p {
+      font-size: 0.75rem; /* Reduce description text size */
+      margin: 0.25rem 0;
+      color: #666;
+    }
+    .product-card .price {
+      font-size: 1rem; /* Slightly reduce price font size */
+      font-weight: lighter;
+      color: #050505;
+      margin: 0.25rem 0;
+    }
+    .product-card .price-button-container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-top: 0.5rem;
+    }
+  
+    .add-btn,
+    .remove-btn {
+      font-size: 0.85rem; /* Reduce button text size */
+      padding: 0.5rem 0.8rem; /* Adjust button padding for smaller size */
+      border-radius: 5px;
+      width: 100%;
+      text-align: center;
+    }
+}
+
+@media (max-width: 350px){
+    .nav-item {
+        font-size: 0.75rem; /* Slightly smaller font size */
+    }
+    .cart-icon-wrapper .cart-icon {
+        font-size: 10px; /* Slightly smaller cart icon */
+    }
+
+    /* Home page */
+    
+    .home-heading {
+        font-size: 1.6rem;
+    }
+    
+    .home-subtitle {
+        font-size: 0.8rem;
+        margin: 0;
+    }
+    
+    .home-button {
+        padding: 0.4rem 1rem;
+        font-size: 0.75rem;
+        margin-top: 1.5rem;
+    }
+
+    /* Products page */
+
+    .product-list {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* Further increase card width */
+        gap: 0.5rem; /* Reduce gap between cards */
+      }
+    
+      .product-card {
+        width: 90%; /* Ensure cards take full width of container */
+        padding: 0.8rem; /* Reduce padding */
+        gap: 0.5rem; /* Reduce gap between elements */
+      }
+    
+      .product-card img {
+        max-height: 80px; /* Further decrease image height */
+        object-fit: cover; /* Maintain image aspect ratio */
+      }
+    
+      .product-card h3 {
+        font-size: 0.85rem; /* Adjust heading font size */
+      }
+    
+      .product-card p {
+        display: none;
+      }
+    
+      .product-card .price {
+        font-size: 0.9rem; /* Adjust price font size */
+      }
+    
+      .add-btn,
+      .remove-btn {
+        font-size: 0.75rem; /* Further reduce button text size */
+        padding: 0.4rem 0.6rem; /* Adjust button padding for smaller size */
+      }
+}

@@ -1,0 +1,310 @@
+/* CartPage.css */
+
+/* Main cart page container */
+.cart-page {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative; /* Important for relative positioning */
+  z-index: 0;
+}
+
+/* Cart items section */
+.cart-items { 
+  flex: 2;
+  margin-right: 2rem;
+}
+
+/* Cart summary section */
+.cart-summary {
+  flex: 1;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.171); /* Matching the shadow from the product cards */
+  background-color: white;
+  position: sticky;
+  top: 20px; /* Keeps it fixed with some space from the top */
+  align-self: flex-start; /* Prevents stretching to the height of the page */
+}
+
+/* Center align the Cart Summary title */
+.cart-summary h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Styling for summary items */
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+/* Style for the Discount Line */
+.summary-item.discount {
+  color: #38a169; /* Optional: Color the discount amount green */
+}
+
+/* Horizontal line above the Total */
+.summary-line {
+  height: 1px;
+  background-color: #ccc;
+  margin: 1rem 0; /* Space above and below the line */
+  width: 100%; /* Full width of the container */
+  margin-left: auto;
+  margin-right: auto; /* Center the line */
+}
+
+/* Total section styling */
+.summary-total {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 1.5rem;
+}
+
+/* Input and Apply button container */
+.coupon-container {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+/* Coupon input field */
+input[type="text"] {
+  flex: 1; /* Takes up the remaining space */
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Apply button */
+.apply-btn {
+  padding: 0.5rem 1rem;
+  background-color: #080808; /* Matching the "Checkout" button style */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-left: 10px; /* Space between input and button */
+  flex-shrink: 0; /* Prevent shrinking when resizing */
+}
+
+.apply-btn:hover {
+  background-color: #232323; /* Darker on hover */
+}
+
+/* Error and success message styling */
+.message {
+  margin-top: 0.5rem; /* Space below the input row */
+  padding: 0.75rem 1rem; /* Increased padding for better visibility */
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.error-message {
+  color: #721c24;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+}
+
+.success-message {
+  color: #155724;
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+}
+
+.checkout-btn {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #080808; /* Same color as "Add to Cart" */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 1.5rem;
+}
+
+.checkout-btn:hover {
+  background-color: #232323; /* Darker on hover */
+}
+
+/* CartItem styles */
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  padding: 1rem; /* Add padding inside the card */
+  border-radius: 10px; /* Rounded corners for card */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.171); /* Matching shadow from the product cards */
+  background-color: white; /* Background for the card */
+}
+
+.cart-item img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.cart-item-details {
+  flex: 1;
+  margin-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cart-item-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: black; /* Ensure title is black */
+}
+
+.cart-item-price {
+  font-size: 1rem;
+  font-weight: bold;
+  color: black; /* Black for price */
+}
+
+.cart-item-controls {
+  display: flex;
+  align-items: center;
+}
+
+.cart-item-controls span {
+  margin: 0 1rem;
+  font-size: 1.2rem;
+  color: black; /* Black for quantity text */
+}
+
+.cart-item-controls button {
+  background-color: transparent; /* No background */
+  border: 1px solid black; /* Black border */
+  color: black; /* Black text */
+  padding: 0.25rem 0.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.cart-item-controls button:hover {
+  background-color: #e2e6ea; /* Light gray on hover */
+}
+
+.cart-item-remove {
+  background-color: black; /* Consistent gray for "Remove from Cart" */
+  color: white; /* Consistent with the "Remove from Cart" button color on home page */
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.cart-item-remove:hover {
+  background-color: #bebfbe; /* Consistent hover effect */
+}
+@media (max-width: 768px) {
+  .cart-page {
+    flex-direction: column; /* Stack items vertically */
+    padding: 1rem;
+    width: 100%; /* Ensure no horizontal scroll */
+    box-sizing: border-box; /* Include padding/border in element width */
+  }
+
+  .cart-items {
+    margin-right: 0;
+    margin-bottom: 2rem;
+    width: 100%; /* Ensure it fits within the container */
+  }
+
+  .cart-summary {
+    width: 100%;
+    padding: 1rem;
+    top: 0;
+    align-self: flex-start;
+    box-shadow: none; /* Optional: Remove shadow */
+  }
+
+  .cart-summary h2 {
+    font-size: 1.4rem;
+  }
+
+  .summary-item {
+    font-size: 0.95rem;
+  }
+
+  .summary-total {
+    font-size: 1.1rem;
+  }
+
+  .apply-btn,
+  .checkout-btn {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .cart-page {
+    padding: 0.5rem;
+  }
+
+  .cart-summary {
+    padding: 0.5rem;
+  }
+
+  .cart-summary h2 {
+    font-size: 1.2rem;
+  }
+
+  .summary-item {
+    font-size: 0.85rem;
+  }
+
+  .summary-total {
+    font-size: 1rem;
+  }
+
+  .apply-btn,
+  .checkout-btn {
+    font-size: 0.85rem;
+    padding: 0.5rem;
+  }
+
+  .cart-item img {
+    width: 100px; /* Reduce image size */
+    height: 100px;
+  }
+
+  .cart-item-title {
+    font-size: 1rem;
+  }
+
+  .cart-item-price {
+    font-size: 0.85rem;
+  }
+
+  .cart-item-controls span {
+    margin: 0 0.5rem;
+    font-size: 1rem;
+  }
+
+  .cart-item-controls button {
+    font-size: 0.85rem;
+    padding: 0.2rem 0.4rem;
+  }
+
+  .cart-item-remove {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+  }
+}

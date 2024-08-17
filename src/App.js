@@ -1,24 +1,103 @@
-import logo from './logo.svg';
+// src/App.js
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import ProductPage from './pages/ProductPage';
+import CartPage from './pages/CartPage';
 import './App.css';
+import Navbar from './components/Navbar'; // Import the new Navbar component
+import Notification from './components/Notification';
+import './styles/responsive.css'
 
 function App() {
+  const [cartItems, setCartItems] = useState(() => {
+    const storedCartItems = localStorage.getItem('cartItems');
+    return storedCartItems ? JSON.parse(storedCartItems) : [];
+  });
+
+  const [notificationVisible, setNotificationVisible] = useState(false);
+  const [notificationMessage, setNotificationMessage] = useState({});
+
+  useEffect(() => {
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+  }, [cartItems]);
+
+  const addToCart = (product) => {
+    const existingProduct = cartItems.find(item => item.id === product.id);
+    if (existingProduct) {
+      setCartItems(cartItems.map(item => item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item));
+    } else {
+      setCartItems([...cartItems, { ...product, quantity: 1 }]);
+    }
+    showNotification({
+      title: `${product.name} added to cart!`,
+      subtitle: "Visit cart to see your order details."
+    });
+  };
+
+  const showNotification = (message) => {
+    setNotificationMessage(message);
+    setNotificationVisible(true);
+  };
+
+  const clearCart = () => {
+    setCartItems([]); // Clear the cart
+    localStorage.removeItem('cartItems'); // Clear from local storage
+  };
+
+  const closeNotification = () => {
+    setNotificationVisible(false);
+  };
+
+  const removeFromCart = (productId) => {
+    setCartItems(cartItems.filter(item => item.id !== productId));
+  };
+
+  const updateQuantity = (productId, quantity) => {
+    setCartItems(cartItems.map(item => item.id === productId ? { ...item, quantity } : item));
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <header className="header-container">
+          <Navbar cartItemsCount={cartItems.length} />
+        </header>
+
+        <Notification 
+          message={notificationMessage} 
+          visible={notificationVisible} 
+          onClose={closeNotification} 
+        />
+
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route 
+            path="/products" 
+            element={
+              <ProductPage 
+                addToCart={addToCart} 
+                removeFromCart={removeFromCart} 
+                cartItems={cartItems}
+                showNotification={showNotification} 
+              />
+            } 
+          />
+          <Route 
+            path="/cart" 
+            element={
+              <CartPage 
+                cartItems={cartItems} 
+                updateQuantity={updateQuantity} 
+                removeItem={removeFromCart} 
+                showNotification={showNotification} 
+                clearCart={clearCart} 
+              />
+            } 
+          />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

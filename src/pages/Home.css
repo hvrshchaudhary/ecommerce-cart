@@ -1,0 +1,46 @@
+/* src/pages/Home.css */
+
+.home-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 60px); /* Adjusted to account for the navbar */
+    text-align: center;
+  }
+  
+  .home-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .home-button {
+    padding: 0.75rem 1.5rem; /* Make the button smaller */
+    font-size: 0.9rem; /* Slightly smaller text */
+    cursor: pointer;
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid black; /* Add border */
+    border-radius: 8px; /* Rounded corners */
+    background-color: white; /* Ensure background is white */
+    text-decoration: none; /* Remove underline */
+    color: black; /* Set text color to black */
+  }
+  
+  .home-button svg {
+    margin-right: 0.5rem; /* Space between icon and text */
+  }
+  
+  .home-button:hover {
+    background-color: #f4f4f4; /* Light gray background on hover */
+  }
+  
+  .home-button a {
+    text-decoration: none; /* Ensure no underline on the link inside the button */
+    color: inherit; /* Ensure link text inherits the color from the button */
+  }
+  

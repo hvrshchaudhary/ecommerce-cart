@@ -1,0 +1,64 @@
+/* src/components/Navbar.css */
+
+.navbar {
+    /* max-width: 1200px; */
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white; /* Ensures a consistent background color */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Slight shadow for elevation */
+  }
+  
+  .nav-links {
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-item {
+    margin-left: 1rem;
+    text-decoration: none;
+    color: black;
+    font-size: 1rem;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-icon {
+    margin-right: 0.5rem; /* Spacing between the anchor icon and the text */
+    font-size: 1.5rem;
+    color: #38a169;
+    font-Size: 2rem;
+  }
+  
+  /* Cart icon wrapper for positioning the badge */
+  .cart-icon-wrapper {
+    position: relative; /* Important for positioning the badge */
+    display: flex;
+    align-items: center;
+    color: black;
+    text-decoration: none;
+  }
+  
+  /* Cart icon styling */
+  .cart-icon {
+    font-size: 24px;
+  }
+  
+  /* Badge positioning and styling */
+  .cart-count-badge {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background-color: #38a169;
+    color: white;
+    font-size: 0.75rem;
+    padding: 2px 6px;
+    border-radius: 50%;
+    line-height: 1;
+  }
+  
