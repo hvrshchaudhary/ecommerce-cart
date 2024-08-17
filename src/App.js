@@ -1,13 +1,12 @@
-// src/App.js
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import ProductPage from './pages/ProductPage';
 import CartPage from './pages/CartPage';
 import './App.css';
-import Navbar from './components/Navbar'; // Import the new Navbar component
+import Navbar from './components/Navbar';
 import Notification from './components/Notification';
-import './styles/responsive.css'
+import './styles/responsive.css';
 
 function App() {
   const [cartItems, setCartItems] = useState(() => {
@@ -41,8 +40,8 @@ function App() {
   };
 
   const clearCart = () => {
-    setCartItems([]); // Clear the cart
-    localStorage.removeItem('cartItems'); // Clear from local storage
+    setCartItems([]);
+    localStorage.removeItem('cartItems');
   };
 
   const closeNotification = () => {
@@ -58,7 +57,7 @@ function App() {
   };
 
   return (
-    <Router>
+    <Router basename="/ecommerce-cart"> {/* Add basename here */}
       <div className="App">
         <header className="header-container">
           <Navbar cartItemsCount={cartItems.length} />
